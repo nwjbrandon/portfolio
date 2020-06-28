@@ -1,0 +1,16 @@
+.contact {
+  &__container {
+    padding: 50px;
+  }
+  &__header {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0px;
+  }
+  &__text {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 10px 0px;
+  }
+}
