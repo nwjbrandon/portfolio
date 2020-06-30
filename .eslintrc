@@ -45,7 +45,8 @@
     "process": true,
     "document": true,
     "File": true,
-    "HTMLDivElement": true
+    "HTMLDivElement": true,
+    "HTMLAudioElement": true,
   },
   "settings": {
     "import/resolver": {

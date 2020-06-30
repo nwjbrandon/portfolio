@@ -12,6 +12,7 @@ import Contact from 'components/Contact';
 import './App.scss';
 
 const App: React.FC = () => {
+  const [isOpen, handleIsOpen] = React.useState<boolean>(false);
   const aboutRef = React.useRef<HTMLDivElement>(null);
   const experiencesRef = React.useRef<HTMLDivElement>(null);
   const educationRef = React.useRef<HTMLDivElement>(null);
@@ -78,18 +79,34 @@ const App: React.FC = () => {
       });
     }
   };
+
+  const handleOpenMenu = () => {
+    handleIsOpen(true);
+  };
+
+  const handleCloseMenu = () => {
+    handleIsOpen(false);
+  };
   return (
     <div>
-      <SideBar
-        handleAboutRefClick={handleAboutRefClick}
-        handleExperiencesRefClick={handleExperiencesRefClick}
-        handleEducationRefClick={handleEducationRefClick}
-        handleProjectsRefClick={handleProjectsRefClick}
-        handleResumeRefClick={handleResumeRefClick}
-        handleCertificationsRefClick={handleCertificationsRefClick}
-        handleSkillsRefClick={handleSkillsRefClick}
-        handleContactRefClick={handleContactRefClick}
-      />
+      <div className="app__menu" onClick={handleOpenMenu}>
+        <div className="app__menu--burger"></div>
+        <div className="app__menu--burger"></div>
+        <div className="app__menu--burger"></div>
+      </div>
+      <div className={isOpen ? '' : 'app__sidebar'} onClick={handleCloseMenu}>
+        <div className={isOpen ? 'app__cover' : ''} />
+        <SideBar
+          handleAboutRefClick={handleAboutRefClick}
+          handleExperiencesRefClick={handleExperiencesRefClick}
+          handleEducationRefClick={handleEducationRefClick}
+          handleProjectsRefClick={handleProjectsRefClick}
+          handleResumeRefClick={handleResumeRefClick}
+          handleCertificationsRefClick={handleCertificationsRefClick}
+          handleSkillsRefClick={handleSkillsRefClick}
+          handleContactRefClick={handleContactRefClick}
+        />
+      </div>
       <Music />
       <div ref={aboutRef}>
         <About />

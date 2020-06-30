@@ -6,5 +6,16 @@
     left: 5%;
     height: 30px;
     width: 90%;
+    outline: none;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    -moz-box-shadow: 0px 0px 10px 5px #8b8b8b;
+    -webkit-box-shadow: 0px 0px 10px 5px #8b8b8b;
+    box-shadow: 0px 0px 10px 5px #8b8b8b;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
   }
 }

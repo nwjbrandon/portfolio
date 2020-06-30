@@ -3,5 +3,8 @@
     margin-left: 300px;
     background-color: #282c34;
     min-height: 100vh;
+    @media only screen and (max-width: 600px) {
+      margin-left: 0px;
+    }
   }
 }
