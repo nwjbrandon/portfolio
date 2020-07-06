@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from 'components/Container';
+
 import './Certifications.scss';
 
 const Certifications: React.FC = () => {
@@ -7,7 +8,9 @@ const Certifications: React.FC = () => {
     <Container>
       <div className="certifications__container">
         <div className="certifications__header">My Certifications</div>
-        <div className="certifications__text">My name is Brandon.</div>
+        <div className="certifications__text">
+          No certificates available yet
+        </div>
       </div>
     </Container>
   );

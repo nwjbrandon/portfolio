@@ -46,7 +46,7 @@
     "document": true,
     "File": true,
     "HTMLDivElement": true,
-    "HTMLAudioElement": true,
+    "HTMLAudioElement": true
   },
   "settings": {
     "import/resolver": {

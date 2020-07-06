@@ -13,4 +13,27 @@
     font-size: 16px;
     margin: 10px 0px;
   }
+
+  &__job {
+    display: flex;
+    margin-top: 10px;
+    &--img {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+    }
+    &--header {
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 16px;
+      margin-left: 10px;
+      line-height: 30px;
+    }
+    &--description {
+      color: #ffffff;
+      font-size: 16px;
+      margin-left: 10px;
+      line-height: 30px;
+    }
+  }
 }

@@ -8,7 +8,6 @@ interface SideBarInterface {
   handleAboutRefClick: any;
   handleEducationRefClick: any;
   handleProjectsRefClick: any;
-  handleResumeRefClick: any;
   handleCertificationsRefClick: any;
   handleSkillsRefClick: any;
   handleContactRefClick: any;
@@ -19,7 +18,6 @@ const SideBar: React.FC<SideBarInterface> = ({
   handleAboutRefClick,
   handleEducationRefClick,
   handleProjectsRefClick,
-  handleResumeRefClick,
   handleCertificationsRefClick,
   handleSkillsRefClick,
   handleContactRefClick
@@ -38,9 +36,6 @@ const SideBar: React.FC<SideBarInterface> = ({
       </div>
       <div onClick={handleProjectsRefClick} className="sidebar__header">
         Projects
-      </div>
-      <div onClick={handleResumeRefClick} className="sidebar__header">
-        Resume
       </div>
       <div onClick={handleCertificationsRefClick} className="sidebar__header">
         Certifications

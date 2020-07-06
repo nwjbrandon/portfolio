@@ -5,7 +5,6 @@ import About from 'components/About';
 import Experiences from 'components/Experiences';
 import Education from 'components/Education';
 import Projects from 'components/Projects';
-import Resume from 'components/Resume';
 import Certifications from 'components/Certifications';
 import Skills from 'components/Skills';
 import Contact from 'components/Contact';
@@ -17,7 +16,6 @@ const App: React.FC = () => {
   const experiencesRef = React.useRef<HTMLDivElement>(null);
   const educationRef = React.useRef<HTMLDivElement>(null);
   const projectsRef = React.useRef<HTMLDivElement>(null);
-  const resumeRef = React.useRef<HTMLDivElement>(null);
   const certificationsRef = React.useRef<HTMLDivElement>(null);
   const skillsRef = React.useRef<HTMLDivElement>(null);
   const contactRef = React.useRef<HTMLDivElement>(null);
@@ -47,13 +45,6 @@ const App: React.FC = () => {
   const handleProjectsRefClick = () => {
     if (projectsRef !== null && projectsRef.current !== null) {
       projectsRef.current.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  const handleResumeRefClick = () => {
-    if (resumeRef !== null && resumeRef.current !== null) {
-      resumeRef.current.scrollIntoView({
         behavior: 'smooth'
       });
     }
@@ -101,7 +92,6 @@ const App: React.FC = () => {
           handleExperiencesRefClick={handleExperiencesRefClick}
           handleEducationRefClick={handleEducationRefClick}
           handleProjectsRefClick={handleProjectsRefClick}
-          handleResumeRefClick={handleResumeRefClick}
           handleCertificationsRefClick={handleCertificationsRefClick}
           handleSkillsRefClick={handleSkillsRefClick}
           handleContactRefClick={handleContactRefClick}
@@ -119,9 +109,6 @@ const App: React.FC = () => {
       </div>
       <div ref={projectsRef}>
         <Projects />
-      </div>
-      <div ref={resumeRef}>
-        <Resume />
       </div>
       <div ref={certificationsRef}>
         <Certifications />
