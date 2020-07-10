@@ -34,5 +34,14 @@
       margin-left: 10px;
       line-height: 30px;
     }
+    @media only screen and (max-width: 900px) {
+      display: block;
+      &--img {
+        display: block;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   }
 }
