@@ -10,7 +10,7 @@ import LinkedinIcon from 'assets/images/linkedin.png';
 import './App.scss';
 
 const App: React.FC = () => {
-  const experienceSettings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -33,7 +33,7 @@ const App: React.FC = () => {
         <WallpaperText text="Experiences" />
       </div>
       <div className="app__background">
-        <Slider {...experienceSettings}>
+        <Slider {...settings}>
           <SlickCard
             header={
               'Data Analytics/Natural Language Processing Intern at GovTech\nJan 2020 - Jul 2020'
@@ -80,7 +80,7 @@ const App: React.FC = () => {
         <WallpaperText text="Projects" />
       </div>
       <div className="app__background">
-        <Slider {...experienceSettings}>
+        <Slider {...settings}>
           <SlickCard
             header={'YWaste (Software Developer)\nJun 2020 - Present'}
             body={
@@ -113,7 +113,7 @@ const App: React.FC = () => {
         <WallpaperText text="Awards And Certificates" />
       </div>
       <div className="app__background">
-        <Slider {...experienceSettings}>
+        <Slider {...settings}>
           <SlickCard
             header={'Supervised Learning with scikit-learn\nAug 2020'}
             body={
