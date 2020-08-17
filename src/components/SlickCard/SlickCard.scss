@@ -1,0 +1,16 @@
+.slickcard {
+  &__container {
+    padding: 10px 5px;
+  }
+  &__header {
+    font-size: 18px;
+    font-weight: bold;
+    white-space: pre-line;
+  }
+
+  &__body {
+    margin-top: 50px;
+    font-size: 18px;
+    white-space: pre-line;
+  }
+}

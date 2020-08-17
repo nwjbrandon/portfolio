@@ -1,47 +1,65 @@
 .app {
-  &__menu {
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    position: fixed;
-    top: 30px;
-    left: 0px;
-    border-radius: 5px;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-    -moz-box-shadow: 0px 0px 10px 5px #8b8b8b;
-    -webkit-box-shadow: 0px 0px 10px 5px #8b8b8b;
-    box-shadow: 0px 0px 10px 5px #8b8b8b;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    &--burger {
-      width: 30px;
-      height: 5px;
-      background-color: black;
-      margin: 6px 0;
-      margin-left: 5px;
+  &__intro {
+    background: url('./assets/images/MikuWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__work {
+    background: url('./assets/images/MikuWorkWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__projects {
+    background: url('./assets/images/MikuProjectsWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__awards {
+    background: url('./assets/images/MikuAwardsWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__contact {
+    background: url('./assets/images/MikuSceneryWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &--icon {
+      color: white;
+      margin: 10px;
+      background-color: white;
+      width: 80px;
       border-radius: 5px;
     }
   }
 
-  &__sidebar {
+  &__background {
+    padding: 50px 5px 50px 5px;
+    font-size: 18px;
+    width: 600px;
+    margin: 0px auto;
+    line-height: 30px;
     @media only screen and (max-width: 600px) {
-      display: none;
+      width: 100%;
     }
-  }
-
-  &__cover {
-    background-color: #282c34;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
   }
 }

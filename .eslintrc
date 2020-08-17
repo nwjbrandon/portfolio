@@ -46,7 +46,9 @@
     "document": true,
     "File": true,
     "HTMLDivElement": true,
-    "HTMLAudioElement": true
+    "HTMLAudioElement": true,
+    "setInterval": true,
+    "clearInterval": true
   },
   "settings": {
     "import/resolver": {
