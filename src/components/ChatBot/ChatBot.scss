@@ -1,0 +1,165 @@
+.chatbot {
+  &__launcher {
+    &--img {
+      width: 80px;
+      border-radius: 50%;
+      border: 1px black solid;
+      right: 40px;
+      bottom: 10px;
+      position: fixed;
+      cursor: pointer;
+    }
+    &--speech-bubble {
+      right: 10px;
+      bottom: 100px;
+      position: fixed;
+      background: rgb(99, 121, 221);
+      border-radius: 5px;
+      padding: 5px;
+      width: 200px;
+      color: white;
+      line-height: 30px;
+      font-size: 18px;
+    }
+
+    &--speech-bubble:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 90%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: rgb(99, 121, 221);
+      border-bottom: 0;
+      border-left: 0;
+      margin-left: -20px;
+      margin-bottom: -20px;
+    }
+  }
+  &__chatcanvas {
+    height: 600px;
+    width: 400px;
+    position: fixed;
+    right: 40px;
+    bottom: 0px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 10px;
+    @media only screen and (max-width: 667px) {
+      right: 0px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__chatheader {
+    background-color: rgb(99, 121, 221);
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    padding: 5px;
+
+    &--img {
+      width: 60px;
+      border-radius: 50%;
+      margin: 5px;
+    }
+
+    &--header {
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 5px;
+    }
+
+    &--subheader {
+      color: white;
+      margin: 5px;
+    }
+
+    &--close {
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      float: right;
+      position: absolute;
+      right: 0px;
+      padding: 20px 20px 20px 5px;
+    }
+  }
+
+  &__chatinput {
+    background-color: white;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+
+    &--wrapper {
+      width: 100%;
+      padding: 10px;
+    }
+
+    &--textarea {
+      width: 100%;
+      border-style: none;
+      font-stretch: normal;
+      border-width: initial;
+      border-image: initial;
+      resize: none;
+      outline: none;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      border-bottom: rgb(99, 121, 221) solid 1px;
+    }
+
+    &--send {
+      height: 100%;
+      padding: 10px;
+    }
+
+    &--tri-top {
+      width: 0;
+      height: 0;
+      border-bottom: 15px solid rgb(99, 121, 221);
+      border-right: 30px solid transparent;
+      margin-bottom: 2px;
+    }
+
+    &--tri-bot {
+      width: 0;
+      height: 0;
+      border-top: 15px solid rgb(99, 121, 221);
+      border-right: 30px solid transparent;
+      margin-top: 2px;
+    }
+  }
+
+  &__chathistory {
+    background-color: rgb(220, 220, 220);
+    overflow: auto;
+    height: calc(100% - 140px);
+    &--message {
+        width: max-content;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-wrap: break-word;
+        max-width: 300px;
+        background-color: white;
+        border-radius: solid 1px grey;
+        white-space: pre-wrap;
+    }
+        &--bot {
+            display: flex;
+            justify-content: flex-start;
+            margin: 10px;
+        }
+
+        &--user {
+            
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px;
+            
+        }
+    
+}
+}

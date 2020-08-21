@@ -3,10 +3,10 @@ import Slider from 'react-slick';
 import SlickCard from 'components/SlickCard';
 import Introduction from 'components/Introduction';
 import WallpaperText from 'components/WallpaperText';
+import ChatBot from 'components/ChatBot';
 import GithubIcon from 'assets/images/github.svg';
 import GmailIcon from 'assets/images/gmail.svg';
 import LinkedinIcon from 'assets/images/linkedin.png';
-
 import './App.scss';
 
 const App: React.FC = () => {
@@ -223,6 +223,7 @@ const App: React.FC = () => {
           }
         />
       </div>
+      <ChatBot />
     </div>
   );
 };
