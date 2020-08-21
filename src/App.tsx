@@ -115,6 +115,30 @@ const App: React.FC = () => {
       <div className="app__background">
         <Slider {...settings}>
           <SlickCard
+            header={'Foundations In AI\nAug 2020'}
+            body={
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1LlnFH7QGVnayCvQh_2vxyh7YRqCbmR__/view"
+              >
+                AI Singapore
+              </a>
+            }
+          />
+          <SlickCard
+            header={'Introduction to Deep Learning in Python\nAug 2020'}
+            body={
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.datacamp.com/statement-of-accomplishment/course/f0c9cd648051a726a19ef4b15c17f710c7278547?share=true"
+              >
+                DataCamp
+              </a>
+            }
+          />
+          <SlickCard
             header={'Supervised Learning with scikit-learn\nAug 2020'}
             body={
               <a
@@ -127,7 +151,33 @@ const App: React.FC = () => {
             }
           />
           <SlickCard
-            header={'NUS Merti Scholarship \nJuly 2018'}
+            header={'Unsupervised Learning in Python\nAug 2020'}
+            body={
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.datacamp.com/statement-of-accomplishment/course/b9c164b191dce2e810fadb6fd17b74fed22806a0?share=true"
+              >
+                DataCamp
+              </a>
+            }
+          />
+          <SlickCard
+            header={
+              'Youth Expedition Project Leaders Training Course YMCA Of Singapore\nJan 2019'
+            }
+            body={
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/12Bkge9pS6dQqJzQ-z-bMyRr6Gi-c9mDG/view"
+              >
+                DataCamp
+              </a>
+            }
+          />
+          <SlickCard
+            header={'NUS Merit Scholarship \nJuly 2018'}
             body={'NUS'}
           />
         </Slider>
