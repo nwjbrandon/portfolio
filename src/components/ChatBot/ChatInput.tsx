@@ -1,14 +1,11 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import { useChatBot } from './ChatBotContext';
 import './ChatBot.scss';
 
-interface ChatInputProps {
-  text: string;
-  setText: (text: string) => void;
-  onClick: (e: React.MouseEvent) => void;
-}
+const ChatInput: React.FC = () => {
+  const { text, setText, onClick } = useChatBot();
 
-const ChatInput: React.FC<ChatInputProps> = ({ text, setText, onClick }) => {
   return (
     <div className="chatbot__chatinput">
       <div className="chatbot__chatinput--wrapper">

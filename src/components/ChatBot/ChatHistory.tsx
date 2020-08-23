@@ -1,4 +1,5 @@
 import React from 'react'
+import { useChatBot } from './ChatBotContext';
 import './ChatBot.scss'
 
 export interface MessageProps {
@@ -16,12 +17,14 @@ const Message: React.FC<MessageProps> = ({ message, user }) => {
   )
 }
 
-export interface ChatHistoryProps {
-  messages: MessageProps[];
-}
+const ChatHistory: React.FC = () => {
+  const [height, setHeight] = React.useState<number>(window.innerHeight);
+  const [width, setWidth] = React.useState<number>(window.innerWidth);
 
-const ChatHistory: React.FC<ChatHistoryProps> = ({ messages }) => {
+  const { messages, lines }  = useChatBot();
+
   const chatWindow = React.createRef<HTMLDivElement>();
+
   React.useEffect(() => {
     if (chatWindow === null || chatWindow.current === null) return
     const element: HTMLDivElement = chatWindow.current;
@@ -31,8 +34,23 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ messages }) => {
       lastChild.scrollIntoView();
     }
   })
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth)
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const chatBotHeight = width < 400 ? height : 500;
+  const maxLines = lines > 5 ? 5 : lines
+  const heightInPx = chatBotHeight - maxLines * 15 - 85;
   return (
-    <div className="chatbot__chathistory">
+    <div className="chatbot__chathistory" style={{ height: `${heightInPx}px`}}>
       <div ref={chatWindow}>
       {
         messages.map((chat, i) => (

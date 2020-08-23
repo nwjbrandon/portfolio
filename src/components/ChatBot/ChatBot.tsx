@@ -1,28 +1,17 @@
 import React from 'react';
 import MikuChatbot from 'assets/images/MikuChatbot.gif';
-
-import './ChatCanvas';
-
-import './ChatBot.scss';
+import { useChatBot } from './ChatBotContext';
 import ChatCanvas from './ChatCanvas';
 
+import './ChatBot.scss';
+
 const Chatbot: React.FC = () => {
-  const [isGretting, setIsGreeting] = React.useState<boolean>(true);
-  const [isChat, setIsChat] = React.useState<boolean>(false);
-
-  const openChat = () => {
-    setIsGreeting(false);
-    setIsChat(true);
-  };
-
-  const closeChat = () => {
-    setIsChat(false);
-  };
+  const { isGreeting, isChat, openChat } = useChatBot();
 
   return (
     <div>
       <div>
-        {isGretting ? (
+        {isGreeting ? (
           <div className="chatbot__launcher--speech-bubble" onClick={openChat}>
             Hi, I am Miku, Brandon&apos;s assistant! How may I assist you today?
           </div>
@@ -39,7 +28,7 @@ const Chatbot: React.FC = () => {
             onClick={openChat}
           />
         )}
-        {isChat ? <ChatCanvas closeChat={closeChat} /> : <div />}
+        {isChat ? <ChatCanvas /> : <div />}
       </div>
     </div>
   );

@@ -99,6 +99,7 @@
     }
 
     &--textarea {
+      width: 280px;
       border-style: none;
       font-stretch: normal;
       border-width: initial;
@@ -138,7 +139,8 @@
   &__chathistory {
     background-color: rgb(220, 220, 220);
     overflow: auto;
-    height: calc(100% - 140px);
+    height: auto;
+    // height: calc(100% - 100px);
     &--message {
       width: max-content;
       padding: 10px;

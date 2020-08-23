@@ -1,13 +1,11 @@
 import React from 'react';
 import MikuChatbot from 'assets/images/MikuChatbot.gif';
+import { useChatBot } from './ChatBotContext';
 
 import './ChatBot.scss';
 
-interface ChatHeaderProps {
-  closeChat: () => void;
-}
-
-const ChatHeader: React.FC<ChatHeaderProps> = ({ closeChat }) => {
+const ChatHeader: React.FC = () => {
+  const { closeChat } = useChatBot();
   return (
     <div className="chatbot__chatheader">
       <div>
