@@ -5,7 +5,6 @@ import './ChatBot.scss';
 
 const ChatInput: React.FC = () => {
   const { text, setText, onClick } = useChatBot();
-
   return (
     <div className="chatbot__chatinput">
       <div className="chatbot__chatinput--wrapper">

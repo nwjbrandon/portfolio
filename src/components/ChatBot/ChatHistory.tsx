@@ -1,4 +1,5 @@
 import React from 'react'
+import { useWindow } from 'contexts/WindowContext';
 import { useChatBot } from './ChatBotContext';
 import './ChatBot.scss'
 
@@ -18,9 +19,7 @@ const Message: React.FC<MessageProps> = ({ message, user }) => {
 }
 
 const ChatHistory: React.FC = () => {
-  const [height, setHeight] = React.useState<number>(window.innerHeight);
-  const [width, setWidth] = React.useState<number>(window.innerWidth);
-
+  const { height, width } = useWindow();
   const { messages, lines }  = useChatBot();
 
   const chatWindow = React.createRef<HTMLDivElement>();
@@ -34,17 +33,6 @@ const ChatHistory: React.FC = () => {
       lastChild.scrollIntoView();
     }
   })
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setHeight(window.innerHeight);
-      setWidth(window.innerWidth)
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const chatBotHeight = width < 400 ? height : 500;
   const maxLines = lines > 5 ? 5 : lines
