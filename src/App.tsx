@@ -127,42 +127,6 @@ const App: React.FC = () => {
             }
           />
           <SlickCard
-            header={'Introduction to Deep Learning in Python\nAug 2020'}
-            body={
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.datacamp.com/statement-of-accomplishment/course/f0c9cd648051a726a19ef4b15c17f710c7278547?share=true"
-              >
-                DataCamp
-              </a>
-            }
-          />
-          <SlickCard
-            header={'Supervised Learning with scikit-learn\nAug 2020'}
-            body={
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.datacamp.com/statement-of-accomplishment/course/3e8900289b861997b1681804a6ed445e08dccaed?share=true"
-              >
-                DataCamp
-              </a>
-            }
-          />
-          <SlickCard
-            header={'Unsupervised Learning in Python\nAug 2020'}
-            body={
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.datacamp.com/statement-of-accomplishment/course/b9c164b191dce2e810fadb6fd17b74fed22806a0?share=true"
-              >
-                DataCamp
-              </a>
-            }
-          />
-          <SlickCard
             header={
               'Youth Expedition Project Leaders Training Course YMCA Of Singapore\nJan 2019'
             }
@@ -172,7 +136,7 @@ const App: React.FC = () => {
                 rel="noopener noreferrer"
                 href="https://drive.google.com/file/d/12Bkge9pS6dQqJzQ-z-bMyRr6Gi-c9mDG/view"
               >
-                DataCamp
+                Youth Corps Singapore
               </a>
             }
           />
