@@ -53,31 +53,36 @@ const ChatBotProvider: React.FC = props => {
   };
 
   const onKeyDown = async (e: React.KeyboardEvent) => {
-    const message = text.replace(/^\s+|\s+$/g, '');
+    const message = trimMessage(text);
     if (!(isAndroid || isIOS || isWinPhone)) {
       if (e.charCode === 13 && !e.shiftKey && message !== '') {
-        setMessages([
-          ...messages,
-          { message, user: 'user' },
-          { message: 'I am currently under maintenance.', user: 'bot' }
-        ]);
-        setText('');
+        addMessage(message);
         e.preventDefault();
       }
     }
   };
 
   const onClick = async (e: React.MouseEvent) => {
-    const message = text.replace(/^\s+|\s+$/g, '');
+    const message = trimMessage(text);
     if (message !== '') {
-      setMessages([
-        ...messages,
-        { message, user: 'user' },
-        { message: 'I am currently under maintenance.', user: 'bot' }
-      ]);
-      setText('');
+      await addMessage(message);
       e.preventDefault();
     }
+  };
+
+  const trimMessage = (text: string) => text.replace(/^\s+|\s+$/g, '');
+
+  const addMessage = async (message: string) => {
+    setMessages([
+      ...messages,
+      { message, user: 'user', date: new Date() },
+      {
+        message: 'I am currently under maintenance.',
+        user: 'bot',
+        date: new Date()
+      }
+    ]);
+    setText('');
   };
 
   return (

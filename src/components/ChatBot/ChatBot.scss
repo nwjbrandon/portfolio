@@ -160,5 +160,12 @@
       justify-content: flex-end;
       margin: 10px;
     }
+
+    &--timestamp {
+      margin-top: 10px;
+      font-size: 12px;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
