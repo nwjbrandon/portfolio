@@ -1,21 +1,22 @@
 import React from 'react';
+import { isAndroid, isIOS, isWinPhone } from 'react-device-detect';
 import { MessageProps } from './ChatHistory';
 
 // https://medium.com/@jeffbutsch/typescript-interface-functions-c691a108e3f1
 interface ChatBotContextProps {
-    text: string;
-    messages: MessageProps[];
-    isGreeting: boolean;
-    isChat: boolean;
-    lines: number;
-    setIsGreeting(_:boolean): void;
-    setIsChat(_: boolean): void;
-    onKeyDown(_: React.KeyboardEvent): void;
-    onClick(_: React.MouseEvent): void;
-    setText(_: string): void;
-    closeChat(): void;
-    openChat(): void;
-  }
+  text: string;
+  messages: MessageProps[];
+  isGreeting: boolean;
+  isChat: boolean;
+  lines: number;
+  setIsGreeting(_: boolean): void;
+  setIsChat(_: boolean): void;
+  onKeyDown(_: React.KeyboardEvent): void;
+  onClick(_: React.MouseEvent): void;
+  setText(_: string): void;
+  closeChat(): void;
+  openChat(): void;
+}
 
 const defaultContextProps: ChatBotContextProps = {
   text: '',
@@ -29,10 +30,12 @@ const defaultContextProps: ChatBotContextProps = {
   onClick: (_: React.MouseEvent): void => {},
   setText: (_: string): void => {},
   closeChat: (): void => {},
-  openChat: (): void => {},
+  openChat: (): void => {}
 };
 
-const ChatBotContext = React.createContext<ChatBotContextProps>(defaultContextProps);
+const ChatBotContext = React.createContext<ChatBotContextProps>(
+  defaultContextProps
+);
 
 const ChatBotProvider: React.FC = props => {
   const [text, setText] = React.useState<string>('');
@@ -51,14 +54,16 @@ const ChatBotProvider: React.FC = props => {
 
   const onKeyDown = async (e: React.KeyboardEvent) => {
     const message = text.replace(/^\s+|\s+$/g, '');
-    if (e.charCode === 13 && !e.shiftKey && message !== '') {
-      setMessages([
-        ...messages,
-        { message, user: 'user' },
-        { message: 'I am currently under maintenance.', user: 'bot' }
-      ]);
-      setText('');
-      e.preventDefault();
+    if (!(isAndroid || isIOS || isWinPhone)) {
+      if (e.charCode === 13 && !e.shiftKey && message !== '') {
+        setMessages([
+          ...messages,
+          { message, user: 'user' },
+          { message: 'I am currently under maintenance.', user: 'bot' }
+        ]);
+        setText('');
+        e.preventDefault();
+      }
     }
   };
 
@@ -82,14 +87,14 @@ const ChatBotProvider: React.FC = props => {
         messages,
         isGreeting,
         isChat,
-        lines: text.split("\n").length,
+        lines: text.split('\n').length,
         setIsGreeting,
         setIsChat,
         onKeyDown,
         onClick,
         setText,
         openChat,
-        closeChat,
+        closeChat
       }}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
