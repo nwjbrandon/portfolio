@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import AppProviders from 'contexts'
+import AppProviders from 'contexts';
 import SlickCard from 'components/SlickCard';
 import Introduction from 'components/Introduction';
 import WallpaperText from 'components/WallpaperText';
@@ -27,9 +27,10 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">
           I am a current third year undergraduate at the National University of
-          Singapore (NUS). I am pursuing a degree in Computer Engineering with
-          specializations in IoT and Robotics and a minor in Data Engineering. My
-          interests are in IoT, Robotics, and Data Science.
+          Singapore (NUS). I am pursuing a degree in Computer Engineering with a
+          specialization in Robotics. My interests are in Robotics and Backend
+          Engineering. My technical leadership is demonstrated through my
+          tech-related local and overseas projects and courses.
         </div>
         <div className="app__work">
           <WallpaperText text="Experiences" />
@@ -38,10 +39,18 @@ const App: React.FC = () => {
           <Slider {...settings}>
             <SlickCard
               header={
+                'System Engineer (IoT) Intern at GovTech\nDec 2020 - March 2022'
+              }
+              body={
+                'Created MATLAB script to annotate data to finetune model\nResearched state of art deep learning models to estimate crowd count\nDeveloped pipeline to deploy model on Nividia Jetson Nano'
+              }
+            />
+            <SlickCard
+              header={
                 'Data Analytics/Natural Language Processing Intern at GovTech\nJan 2020 - Jul 2020'
               }
               body={
-                'Analyzed chatbot dataset using PyTorch and Scikit Learn\nDeveloped dashboard to visualize analysis in ReactJS, Flask, MongoDB, Docker, and Kubernetes\nImplemented scalable pipeline using Spark to run analysis as ETL jobs\nCreated mockups to design dashboard for visualization with using AdobeXD'
+                'Built NLP models to analyze chatbot dataset using PyTorch and Scikit Learn\nDeveloped dashboard to visualize analysis in ReactJS, Flask, and MongoDB\nDeployed apps with Docker and Kubernetes in AWS\nImplemented scalable pipeline using Spark to run analysis as ETL jobs'
               }
             />
             <SlickCard
@@ -49,7 +58,7 @@ const App: React.FC = () => {
                 'Student Discussion Leader for CS1010 at NUS\nAug 2019 - Nov 2010'
               }
               body={
-                'Facilitated tutorial discussions to reinforce C programming concepts for students\nGraded programming lab assignments with feedback for improvements'
+                'Facilitated tutorial discussions to reinforce C programming concepts\nGraded programming lab assignments with feedback for improvements'
               }
             />
             <SlickCard
@@ -57,7 +66,7 @@ const App: React.FC = () => {
                 'Software Developer Intern at Hodlnaut\nMay 2019 - Jul 2019'
               }
               body={
-                'Developed website to hold and invest cryptocurrencies in ReactJS, ExpressJS and RethinkDB\nIntegrated end to end testing with CypressJS on GitLab CI and CD pipeline'
+                'Developed website to invest in cryptocurrencies in ReactJS, ExpressJS, and RethinkDB\nImplemented end to end testing with CypressJS for continuous integration and deployment\nPrioritized tasks to achieve and release during weekly sprint planning'
               }
             />
             <SlickCard
@@ -65,7 +74,7 @@ const App: React.FC = () => {
                 'Software Developer Intern at Finesse Digital\nJan 2018 - Jul 2018'
               }
               body={
-                'Developed website to assist in financial investments in NuxtJS, Django, and PostgreSQL\nAutomated CI and CD pipeline on AWS with Ansible and Jenkins'
+                'Developed website to assist in financial investments in NuxtJS, Django, and PostgreSQL\nAutomated continuous integration and deployment on AWS with Ansible and Jenkins\nDocumented setup and code in shared platform and APIs with SwaggerUI'
               }
             />
             <SlickCard
@@ -83,26 +92,6 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">
           <Slider {...settings}>
-            <SlickCard
-              header={'YWaste (Software Developer)\nJun 2020 - Present'}
-              body={
-                'Developed Restful API to upload image for OCR with AWS Textract\nDeployed OCR as a SaaS on AWS Lambda and API Gateway with Terraform'
-              }
-            />
-            <SlickCard
-              header={
-                'DARPA Subterranean Challenge (Software Developer)\nApr 2020 - Aug 2020'
-              }
-              body={
-                "Programmed aerial obstacle avoidance software into drone's firmware\nDeveloped dashboard with rviz plugins to control and visualize robots' movements"
-              }
-            />
-            <SlickCard
-              header={'Auturec (Tech Head)\nSep 2019 - May 2020'}
-              body={
-                'Initiated project to help children who are intelligent-challenged to learn\nDeveloped app with engaging games and activities in ReactJs'
-              }
-            />
             <SlickCard
               header={'Project Bali (Project Director)\nJan 2019 - Aug 2019'}
               body={
@@ -149,45 +138,43 @@ const App: React.FC = () => {
           </Slider>
         </div>
         <div className="app__contact">
-          <WallpaperText
-            text={
-              <div>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/nwjbrandon"
-                >
-                  <img
-                    alt="GitHub"
-                    className="app__contact--icon"
-                    src={GithubIcon}
-                  />
-                </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/in/nwjbrandon"
-                >
-                  <img
-                    alt="LinkedIn"
-                    className="app__contact--icon"
-                    src={LinkedinIcon}
-                  />
-                </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nwjbrandon@gmail.com"
-                >
-                  <img
-                    alt="Gmail"
-                    className="app__contact--icon"
-                    src={GmailIcon}
-                  />
-                </a>
-              </div>
-            }
-          />
+          <div className="app__contact--container">
+            <div className="app__contact--icons">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/nwjbrandon"
+              >
+                <img
+                  alt="GitHub"
+                  className="app__contact--icon"
+                  src={GithubIcon}
+                />
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/nwjbrandon"
+              >
+                <img
+                  alt="LinkedIn"
+                  className="app__contact--icon"
+                  src={LinkedinIcon}
+                />
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nwjbrandon@gmail.com"
+              >
+                <img
+                  alt="Gmail"
+                  className="app__contact--icon"
+                  src={GmailIcon}
+                />
+              </a>
+            </div>
+          </div>
         </div>
         <ChatBot />
       </div>

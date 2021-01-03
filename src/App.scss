@@ -43,12 +43,37 @@
     background-size: cover;
     background-attachment: fixed;
 
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    &--icons {
+      column-count: 3;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      top: 50%;
+      @media only screen and (max-width: 200px) {
+        column-count: 1;
+        width: 100%;
+      }
+    }
+
     &--icon {
+      display: block;
       color: white;
-      margin: 10px;
+      margin-left: auto;
+      margin-right: auto;
       background-color: white;
       width: 50px;
       border-radius: 5px;
+      @media only screen and (max-width: 200px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
     }
   }
 
