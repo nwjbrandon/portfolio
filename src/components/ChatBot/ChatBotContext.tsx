@@ -1,5 +1,7 @@
 import React from 'react';
 import { isAndroid, isIOS, isWinPhone } from 'react-device-detect';
+import { v4 as uuidv4 } from 'uuid';
+import ChatbotEndpoint from 'utils/ChatbotEndpointUtils';
 import { MessageProps } from './ChatHistory';
 
 // https://medium.com/@jeffbutsch/typescript-interface-functions-c691a108e3f1
@@ -38,6 +40,7 @@ const ChatBotContext = React.createContext<ChatBotContextProps>(
 );
 
 const ChatBotProvider: React.FC = props => {
+  const userId = uuidv4();
   const [text, setText] = React.useState<string>('');
   const [messages, setMessages] = React.useState<MessageProps[]>([]);
   const [isGreeting, setIsGreeting] = React.useState<boolean>(true);
@@ -73,16 +76,34 @@ const ChatBotProvider: React.FC = props => {
   const trimMessage = (text: string) => text.replace(/^\s+|\s+$/g, '');
 
   const addMessage = async (message: string) => {
+    const userUtterance = { message, user: 'user', date: new Date() };
     setMessages([
       ...messages,
-      { message, user: 'user', date: new Date() },
-      {
-        message: 'I am currently under maintenance.',
-        user: 'bot',
-        date: new Date()
-      }
-    ]);
+      userUtterance,
+    ]);    
     setText('');
+    try {
+      const { data } = await ChatbotEndpoint.post("/webhooks/rest/webhook", {message, "sender": userId});
+      const botUtterances = await data.map((message: any) => ({ message: message.text, user: 'bot', date: new Date()}))
+      setMessages([
+        ...messages,
+        userUtterance,
+        ...botUtterances
+      ]);
+    } catch (e) {
+      console.error(e);
+      setMessages([
+        ...messages,
+        userUtterance,
+        {
+          message: 'I am currently under maintenance.',
+          user: 'bot',
+          date: new Date()
+        }
+      ]);     
+
+    }
+
   };
 
   return (
