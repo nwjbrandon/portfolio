@@ -1,5 +1,5 @@
 import React from 'react';
-import MikuChatbot from 'assets/images/MikuChatbot.gif';
+import VirtualAssistant from 'assets/images/VirtualAssistant.gif';
 import { useChatBot } from './ChatBotContext';
 
 import './ChatBot.scss';
@@ -10,13 +10,13 @@ const ChatHeader: React.FC = () => {
     <div className="chatbot__chatheader">
       <div>
         <img
-          src={MikuChatbot}
-          alt="Miku Icon"
+          src={VirtualAssistant}
+          alt="Chloe Icon"
           className="chatbot__chatheader--img"
         />
       </div>
       <div>
-        <div className="chatbot__chatheader--header">Miku</div>
+        <div className="chatbot__chatheader--header">Chloe</div>
         <div className="chatbot__chatheader--subheader">Virtual Assistant</div>
       </div>
       <div className="chatbot__chatheader--close" onClick={closeChat}>

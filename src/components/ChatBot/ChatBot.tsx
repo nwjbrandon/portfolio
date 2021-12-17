@@ -1,5 +1,5 @@
 import React from 'react';
-import MikuChatbot from 'assets/images/MikuChatbot.gif';
+import VirtualAssistant from 'assets/images/VirtualAssistant.gif';
 import { useChatBot } from './ChatBotContext';
 import ChatCanvas from './ChatCanvas';
 
@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
       <div>
         {isGreeting ? (
           <div className="chatbot__launcher--speech-bubble" onClick={openChat}>
-            Hi, I am Miku, Brandon&apos;s assistant! How may I assist you today?
+            Hi, I am Chloe! How may I assist you today?
           </div>
         ) : (
           <div />
@@ -22,8 +22,8 @@ const Chatbot: React.FC = () => {
           <div />
         ) : (
           <img
-            src={MikuChatbot}
-            alt="Miku Icon"
+            src={VirtualAssistant}
+            alt="Chloe Icon"
             className="chatbot__launcher--img"
             onClick={openChat}
           />

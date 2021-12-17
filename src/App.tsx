@@ -26,23 +26,41 @@ const App: React.FC = () => {
           <Introduction />
         </div>
         <div className="app__background">
-          I am a current third year undergraduate at the National University of
+          I am a final year undergraduate at the National University of
           Singapore (NUS). I am pursuing a degree in Computer Engineering with a
-          specialization in Robotics. My interests are in Robotics and Backend
-          Engineering. My technical leadership is demonstrated through my
-          tech-related local and overseas projects and courses.
+          specialization in Robotics. My interests are in AI, Robotics, and IoT.
+          I was a teacher assistant for CG4002 Teaching Asistant AY2021/2022 
+          Semester 2, CG4002 Teaching Assistant AY2021/2022 Semester 1, and
+          CS1010 Teaching Assistant AY2019/2020 Semester 1. I am also a NUS Merit 
+          Scholarship holder.
         </div>
         <div className="app__work">
           <WallpaperText text="Experiences" />
         </div>
         <div className="app__background">
           <Slider {...settings}>
-            <SlickCard
+          <SlickCard
               header={
-                'System Engineer (IoT) Intern at GovTech\nDec 2020 - March 2022'
+                'Alglorithm Engineer Intern (NLP) at Shopee\nDec 2021 - Present'
               }
               body={
-                'Created MATLAB script to annotate data to finetune model\nResearched state of art deep learning models to estimate crowd count\nDeveloped pipeline to deploy model on Nividia Jetson Nano'
+                'TBD'
+              }
+            />
+          <SlickCard
+              header={
+                'AI Developer Intern at Augmentus\nMay 2021 - Sep 2021'
+              }
+              body={
+                'Optimized inference speed of machine learning models on Jetson platform to run 3 times faster\nDeveloped concurrent modules to control robot, run model inference, and stream images to device via TCP\nFinetuned hyper-parameters and data augmentation steps to improve models inference on smaller dataset\nIntegrated model training with AWS to automate the training process with 70% cost savings'
+              }
+            />
+            <SlickCard
+              header={
+                'System Engineer (IoT) Intern at GovTech\nDec 2020 - March 2021'
+              }
+              body={
+                'Researched and evaluated different state-of-art deep learning models to estimate crowd count\nCreated training dataset from video footage on taget environment to finetune machine learning models\nIntegrated machine learning model with Docker on Jetson Platform to operate in the server room'
               }
             />
             <SlickCard
@@ -50,15 +68,7 @@ const App: React.FC = () => {
                 'Data Analytics/Natural Language Processing Intern at GovTech\nJan 2020 - Jul 2020'
               }
               body={
-                'Built NLP models to analyze chatbot dataset using PyTorch and Scikit Learn\nDeveloped dashboard to visualize analysis in ReactJS, Flask, and MongoDB\nDeployed apps with Docker and Kubernetes in AWS\nImplemented scalable pipeline using Spark to run analysis as ETL jobs'
-              }
-            />
-            <SlickCard
-              header={
-                'Student Discussion Leader for CS1010 at NUS\nAug 2019 - Nov 2010'
-              }
-              body={
-                'Facilitated tutorial discussions to reinforce C programming concepts\nGraded programming lab assignments with feedback for improvements'
+                'Build and analyze NLP models to improve chatbot dataset from multiple government agencies\nDeveloped dashboard to visualize analysis from NLP models and integrate with Google DialogFlow APIs\nCreated scripts to automate deployment of dashboard using Docker and Kubernetes on AWS'
               }
             />
             <SlickCard
@@ -66,23 +76,7 @@ const App: React.FC = () => {
                 'Software Developer Intern at Hodlnaut\nMay 2019 - Jul 2019'
               }
               body={
-                'Developed website to invest in cryptocurrencies in ReactJS, ExpressJS, and RethinkDB\nImplemented end to end testing with CypressJS for continuous integration and deployment\nPrioritized tasks to achieve and release during weekly sprint planning'
-              }
-            />
-            <SlickCard
-              header={
-                'Software Developer Intern at Finesse Digital\nJan 2018 - Jul 2018'
-              }
-              body={
-                'Developed website to assist in financial investments in NuxtJS, Django, and PostgreSQL\nAutomated continuous integration and deployment on AWS with Ansible and Jenkins\nDocumented setup and code in shared platform and APIs with SwaggerUI'
-              }
-            />
-            <SlickCard
-              header={
-                'Data Crawling Engineer Intern at 6Estates\nFeb 2018 - May 2018'
-              }
-              body={
-                'Scrapped websites and endpoints for market analysis in JavaScript\nExtracted information from text with regular expression'
+                'Developed APIs and improved user interface for users to deposit and invest in cryptocurrencies\nImplemented end to end testing and integrated into deployment pipeline for continuous testing'
               }
             />
           </Slider>
@@ -93,11 +87,23 @@ const App: React.FC = () => {
         <div className="app__background">
           <Slider {...settings}>
             <SlickCard
-              header={'Project Bali (Project Director)\nJan 2019 - Aug 2019'}
-              body={
-                'Led team of 11 for overseas community project overseeing recruitment, logistics, and planning\nDeveloped website to promote experiential tourism in ReactJS, ExpressJS, and MySQL on DigitalOcean\nAutomated cron job for HTTPS encryption of website with Certbot'
-              }
-            />
+                header={'CG4001 B. Eng. Dissertation (Teleoperate robotic arm via 3D pose estimation)\nAug 2021 - Present'}
+                body={
+                  'Trained Graph Convolutional Network models in PyTorch for 3D pose estimation of upper body\nCreated robot simulation with Unity Engine to teleoperate a robotic arm with the 3D pose information'
+                }
+              />
+              <SlickCard
+                header={'CG4002 Computer Engineering Capstone Project (Create wearable devices to classify dance moves)\nJan 2021 - May 2021'}
+                body={
+                  'Performed time and frequency domain feature engineering on time series IMU data in pre-processing steps\nTrained machine learning model in PyTorch on extracted features to classify dance moves with 97% accuracy'
+                }
+              />
+              <SlickCard
+                header={'Sixth Sense (Increase digital presence of Bengkala for experiential tourism)\nJan 2019 - Aug 2019'}
+                body={
+                  'Led a group of 11 students for overseas community service project to promote experiential tourism in Bengkala\nOrganized and coordinated project plans, finances, and logistics with a student group in Indonesia\nDeveloped website and deployed on DigitalOcean for the community to update and share stories of themselves'
+                }
+              />
           </Slider>
         </div>
         <div className="app__awards">
@@ -105,6 +111,10 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">
           <Slider {...settings}>
+            <SlickCard
+              header={'Commendation Letter For CG4002 \nDec 2021'}
+              body={'NUS'}
+            />
             <SlickCard
               header={'Foundations In AI\nAug 2020'}
               body={
@@ -132,7 +142,7 @@ const App: React.FC = () => {
               }
             />
             <SlickCard
-              header={'NUS Merit Scholarship \nJuly 2018'}
+              header={'NUS Merit Scholarship \nJul 2018'}
               body={'NUS'}
             />
           </Slider>
