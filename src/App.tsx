@@ -18,7 +18,7 @@ const App: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true
+    autoplay: true,
   };
   return (
     <AppProviders>
@@ -26,17 +26,19 @@ const App: React.FC = () => {
         <div className="app__intro">
           <Introduction />
         </div>
-        <div className="app__background">
-          {Portfolio.Introduction.en}
-        </div>
+        <div className="app__background">{Portfolio.Introduction.en}</div>
         <div className="app__work">
           <WallpaperText text="Experiences" />
         </div>
         <div className="app__background">
           <Slider {...settings}>
-            {
-              Portfolio.Experiences.map((exp, i) => <SlickCard key={i} header={exp.en.title} body={exp.en.description} />)
-            }
+            {Portfolio.Experiences.map((exp, i) => (
+              <SlickCard
+                key={i}
+                header={exp.en.title}
+                body={exp.en.description}
+              />
+            ))}
           </Slider>
         </div>
         <div className="app__projects">
@@ -44,9 +46,13 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">
           <Slider {...settings}>
-          {
-              Portfolio.Projects.map((proj, i) => <SlickCard key={i} header={proj.en.title} body={proj.en.description} />)
-            }
+            {Portfolio.Projects.map((proj, i) => (
+              <SlickCard
+                key={i}
+                header={proj.en.title}
+                body={proj.en.description}
+              />
+            ))}
           </Slider>
         </div>
         <div className="app__awards">
@@ -54,10 +60,13 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">
           <Slider {...settings}>
-          {
-              Portfolio.Awards.map((proj, i) => <SlickCard key={i} header={proj.en.title} body={proj.en.description} />)
-            }
-
+            {Portfolio.Awards.map((proj, i) => (
+              <SlickCard
+                key={i}
+                header={proj.en.title}
+                body={proj.en.description}
+              />
+            ))}
           </Slider>
         </div>
         <div className="app__contact">
