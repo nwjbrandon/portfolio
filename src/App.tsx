@@ -28,7 +28,7 @@ const App: React.FC = () => {
         </div>
         <div className="app__background">{Portfolio.Introduction.en}</div>
         <div className="app__work">
-          <WallpaperText text="Experiences" />
+          <WallpaperText text={Portfolio.Sections.experiences.en} />
         </div>
         <div className="app__background">
           <Slider {...settings}>
@@ -42,7 +42,7 @@ const App: React.FC = () => {
           </Slider>
         </div>
         <div className="app__projects">
-          <WallpaperText text="Projects" />
+          <WallpaperText text={Portfolio.Sections.projects.en} />
         </div>
         <div className="app__background">
           <Slider {...settings}>
@@ -56,7 +56,7 @@ const App: React.FC = () => {
           </Slider>
         </div>
         <div className="app__awards">
-          <WallpaperText text="Awards And Certificates" />
+          <WallpaperText text={Portfolio.Sections.awards.en} />
         </div>
         <div className="app__background">
           <Slider {...settings}>
