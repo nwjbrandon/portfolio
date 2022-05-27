@@ -6,7 +6,6 @@ import Introduction from 'components/Introduction';
 import WallpaperText from 'components/WallpaperText';
 import ChatBot from 'components/ChatBot';
 import GithubIcon from 'assets/images/github.svg';
-import GmailIcon from 'assets/images/gmail.svg';
 import LinkedinIcon from 'assets/images/linkedin.png';
 import Portfolio from 'utils/Portfolio';
 import './App.scss';
@@ -71,7 +70,7 @@ const App: React.FC = () => {
         </div>
         <div className="app__contact">
           <div className="app__contact--container">
-            <div className="app__contact--icons">
+            <div>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -92,17 +91,6 @@ const App: React.FC = () => {
                   alt="LinkedIn"
                   className="app__contact--icon"
                   src={LinkedinIcon}
-                />
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nwjbrandon@gmail.com"
-              >
-                <img
-                  alt="Gmail"
-                  className="app__contact--icon"
-                  src={GmailIcon}
                 />
               </a>
             </div>
