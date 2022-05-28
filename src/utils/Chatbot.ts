@@ -1,6 +1,8 @@
 // Fuzzy Approach For Text Classification https://www.researchgate.net/publication/3845652_A_fuzzy_similarity_approach_in_text_classification_task
 import axios from 'axios';
-import { trainingTexts, responsesList } from './Dataset';
+import { trainingTexts, responsesList, stopWordsList } from './Dataset';
+
+const stopWordsSet = new Set(stopWordsList);
 
 // curl https://api.telegram.org/bot{apiToken}/getUpdates -> get the chatId
 const baseUrl = 'https://api.telegram.org/bot';
@@ -20,6 +22,9 @@ const computerMembershipTable = (texts: [string, number][]) => {
     const text: string = texts[i][0].toLowerCase();
     const tokens = text.split(' ');
     for (const token of tokens) {
+      if (stopWordsSet.has(token)) {
+        continue;
+      }
       if (!(token in uniqueTerms)) {
         terms.push(token);
         uniqueTerms[token] = n_terms;
@@ -85,6 +90,9 @@ const computeFuzzyRelationship = (fuzzyTable: any, text: string) => {
     let conjunction = 0;
     let disjunction = 0;
     for (const token in counter) {
+      if (stopWordsSet.has(token)) {
+        continue;
+      }
       let uD = counter[token] / tokens.length;
       let uR = 0;
       if (token in uniqueTerms) {
