@@ -12,10 +12,12 @@
     border: none;
     color: white;
     cursor: pointer;
+    font-size: 18px;
     &--curr {
       background-color: white;
       background-repeat: no-repeat;
       border: none;
+      font-size: 18px;
     }
     &:hover {
       color: red;

@@ -1,3 +1,22 @@
+const ShortIntroduction: { [id: string]: string }[] = [
+  {
+    en: 'Hi, I am Brandon!',
+    jp: 'こんにちは、ブランドンです！',
+  },
+  {
+    en: 'I am a Software Engineer.',
+    jp: '私はソフトウェアエンジニアです。',
+  },
+  {
+    en: 'My interests are in NLP, RecSys, and CV.',
+    jp: '私の興味はNLP、RecSys、CVにあります。',
+  },
+  {
+    en: 'I like Anime and Hololive.',
+    jp: '私はアニメとホロライブが好きです。',
+  },
+];
+
 const Sections: { [id: string]: { [id: string]: string } } = {
   experiences: {
     en: 'Experiences',
@@ -171,6 +190,7 @@ const Awards: { [id: string]: { [id: string]: string } }[] = [
 ];
 
 export default {
+  ShortIntroduction,
   Sections,
   Introduction,
   Experiences,

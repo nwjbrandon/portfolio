@@ -1,15 +1,22 @@
 import React from 'react';
+import Portfolio from 'utils/Portfolio';
+import { useLanguage } from 'contexts/LanguageContext';
+
 import './Introduction.scss';
 
 const Introduction: React.FC = () => {
-  const fixedText = 'Hi, I am Brandon!';
+  const { lang } = useLanguage();
+  const ShortIntroduction = Portfolio.ShortIntroduction;
+
+  // const fixedText: string[] = ['Hi, I am Brandon!', 'I am a Software Engineer.', 'My interests are in NLP, RecSys, and CV.', 'I like Anime and Hololive.'];
+  const [counter, setCounter] = React.useState<number>(0);
   const [text, setText] = React.useState<string>('');
   const [isHidden, setIsHidden] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (text.length < fixedText.length) {
-        setText(fixedText.slice(0, text.length + 1));
+      if (text.length < ShortIntroduction[counter][lang].length) {
+        setText(ShortIntroduction[counter][lang].slice(0, text.length + 1));
       }
     }, 100);
     return () => {
@@ -29,6 +36,7 @@ const Introduction: React.FC = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setText('');
+      setCounter((counter + 1) % ShortIntroduction.length);
     }, 3000);
     return () => {
       clearInterval(interval);
