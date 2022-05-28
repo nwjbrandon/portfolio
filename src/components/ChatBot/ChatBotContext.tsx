@@ -1,7 +1,6 @@
 import React from 'react';
 import { isAndroid, isIOS, isWinPhone } from 'react-device-detect';
-import { v4 as uuidv4 } from 'uuid';
-import ChatbotEndpoint from 'utils/ChatbotEndpointUtils';
+import GetResponse from 'utils/Chatbot';
 import { MessageProps } from './ChatHistory';
 
 // https://medium.com/@jeffbutsch/typescript-interface-functions-c691a108e3f1
@@ -32,17 +31,22 @@ const defaultContextProps: ChatBotContextProps = {
   onClick: (_: React.MouseEvent): void => {},
   setText: (_: string): void => {},
   closeChat: (): void => {},
-  openChat: (): void => {}
+  openChat: (): void => {},
 };
 
-const ChatBotContext = React.createContext<ChatBotContextProps>(
-  defaultContextProps
-);
+const ChatBotContext =
+  React.createContext<ChatBotContextProps>(defaultContextProps);
 
-const ChatBotProvider: React.FC = props => {
-  const userId = uuidv4();
+const ChatBotProvider: React.FC = (props) => {
   const [text, setText] = React.useState<string>('');
-  const [messages, setMessages] = React.useState<MessageProps[]>([]);
+  const [messages, setMessages] = React.useState<MessageProps[]>([
+    {
+      message:
+        'Hi, I am Chloe! I can answer your questions about Brandon on his behalf.',
+      user: 'bot',
+      date: new Date(),
+    },
+  ]);
   const [isGreeting, setIsGreeting] = React.useState<boolean>(true);
   const [isChat, setIsChat] = React.useState<boolean>(false);
 
@@ -77,33 +81,10 @@ const ChatBotProvider: React.FC = props => {
 
   const addMessage = async (message: string) => {
     const userUtterance = { message, user: 'user', date: new Date() };
-    setMessages([
-      ...messages,
-      userUtterance,
-    ]);    
+    setMessages([...messages, userUtterance]);
     setText('');
-    try {
-      const { data } = await ChatbotEndpoint.post("/webhooks/rest/webhook", {message, "sender": userId});
-      const botUtterances = await data.map((message: any) => ({ message: message.text, user: 'bot', date: new Date()}))
-      setMessages([
-        ...messages,
-        userUtterance,
-        ...botUtterances
-      ]);
-    } catch (e) {
-      console.error(e);
-      setMessages([
-        ...messages,
-        userUtterance,
-        {
-          message: 'I am currently under maintenance.',
-          user: 'bot',
-          date: new Date()
-        }
-      ]);     
-
-    }
-
+    const botUtterance = await GetResponse(message);
+    setMessages([...messages, userUtterance, botUtterance]);
   };
 
   return (
@@ -120,7 +101,7 @@ const ChatBotProvider: React.FC = props => {
         onClick,
         setText,
         openChat,
-        closeChat
+        closeChat,
       }}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}

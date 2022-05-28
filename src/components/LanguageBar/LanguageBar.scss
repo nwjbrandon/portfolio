@@ -1,0 +1,26 @@
+.languagebar {
+  &__container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    position: fixed;
+    right: 0px;
+  }
+
+  &__button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    &--curr {
+      background-color: white;
+      background-repeat: no-repeat;
+      border: none;
+      font-size: 18px;
+    }
+    &:hover {
+      color: red;
+    }
+  }
+}
