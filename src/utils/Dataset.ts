@@ -56,37 +56,31 @@ export const trainingTexts: [string, number][] = [
   ['who are you', 8],
   ['share describe more about him', 8],
 
-  ['does he have a girlfriend or partner in life', 9],
-  ['who does he love or is he married marry', 9],
-  ['i love him you and can go out together', 9],
+  ['what is his favourite song', 9],
+  ['what does he like to listen to', 9],
+  ['does he listen to music while studying study', 9],
+  ['what music does he like enjoy listening to', 9],
+  ['who is his favourite music artist', 9],
 
-  ['what is his favourite song', 10],
-  ['what does he like to listen to', 10],
-  ['does he listen to music while studying study', 10],
-  ['what music does he like enjoy listening to', 10],
-  ['who is his favourite music artist', 10],
+  ['is he looking look searching search for a job', 10],
 
-  ['is he looking look searching search for a job', 11],
+  ['top 3 three traits characters', 11],
 
-  ['top 3 three traits characters', 12],
+  ['what did he do for FYP final year project', 12],
+  ['what is his proud proudest achievement or achievements', 12],
+  ['what is his most memorable thing in NUS college education', 12],
 
-  ['what did he do for FYP final year project', 13],
-  ['what is his proud proudest achievement or achievements', 13],
-  ['what is his most memorable thing in NUS college education', 13],
+  ['what is one thing he wish to change', 13],
+  ['what does he want to improve', 13],
 
-  ['what kind type of girlfriend is he looking for', 14],
+  ['how would you describe NUS college life', 14],
 
-  ['what is one thing he wish to change', 15],
-  ['what does he want to improve', 15],
+  ['where is he working work at and as now', 15],
+  ['what is his currently job', 15],
 
-  ['how would you describe NUS college life', 16],
-
-  ['where is he working work at and as now', 17],
-  ['what is his currently job', 17],
-
-  ['any advice to your juniors', 18],
-  ['any suggestion on how to become smart good like you', 18],
-  ['i want to study at nus any advice on how to do well', 18],
+  ['any advice to your juniors', 16],
+  ['any suggestion on how to become smart good like you', 16],
+  ['i want to study at nus any advice on how to do well', 16],
 ];
 
 export const responsesList: { [label: string]: string } = {
@@ -99,16 +93,14 @@ export const responsesList: { [label: string]: string } = {
   '6': 'My favourite food is Sushi',
   '7': 'I can be contacted through my email at nwjbrandon@gmail.com.',
   '8': 'I am a techie who likes to build system and products for the greater good.',
-  '9': 'I am single and is looking for a girlfriend.',
-  '10': 'My favourite song is Final Phase by Flipside',
-  '11': 'I am looking for a job in a tech company in Japan.',
-  '12': 'Smart, Fun, Cool.',
-  '13': 'Building a telerobot arm using pose estimation',
-  '14': 'I want a girlfriend who is pretty, smart, and independent, but occasionally an airhead like Yor Forger.',
-  '15': 'If I could change one thing, I will change my habit of procrastinating.',
-  '16': 'NUS is very competitve, but you learn a lot if you put your mind to it.',
-  '17': 'I am currently working on the AICET project under AISG.',
-  '18': 'Stay hungry for knowledge.',
+  '9': 'My favourite song is Final Phase by Flipside',
+  '10': 'I am looking for a job in a tech company in Japan.',
+  '11': 'Smart, Fun, Cool.',
+  '12': 'Building a telerobot arm using pose estimation',
+  '13': 'If I could change one thing, I will change my habit of procrastinating.',
+  '14': 'NUS is very competitve, but you learn a lot if you put your mind to it.',
+  '15': 'I am currently working on the AICET project under AISG.',
+  '16': 'Stay hungry for knowledge.',
 };
 
 export const stopWordsList: string[] = [
