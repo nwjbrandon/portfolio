@@ -1,10 +1,11 @@
 import React from 'react';
 import { WindowProvider } from './WindowContext';
+import { LanguageProvider } from './LanguageContext';
 
 const AppProviders = ({ children }: any) => {
   return (
     <WindowProvider>
-      {children}
+      <LanguageProvider>{children}</LanguageProvider>
     </WindowProvider>
   );
 };

@@ -10,8 +10,9 @@ const Sections = {
   },
 };
 
-const Introduction = {
+const Introduction: { [id: string]: string } = {
   en: 'A techie with industrial experience in implementing state-of-art algorithms, building machine learning models, deploying models at scale in startups, public and government agencies to create data-driven products and decision.\n\nI am graduated from National University of Singapore with a BEng in Computer Engineering and am currently working on the AICET project as a full-time Software Engineer under AISG, Singapore.',
+  jp: 'Test',
 };
 
 const Experiences = [
