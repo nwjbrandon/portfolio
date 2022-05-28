@@ -21,12 +21,6 @@ const App: React.FC = () => {
     autoplay: true,
   };
   const { lang } = useLanguage();
-  // const [introduction, setIntroduction] = React.useState<string>("en");
-  console.log('App:', lang);
-
-  // React.useEffect(() => {
-  //   setIntroduction(Portfolio.Introduction[lang])
-  // }, [lang])
 
   return (
     <div>
@@ -37,43 +31,43 @@ const App: React.FC = () => {
       </div>
       <div className="app__background">{Portfolio.Introduction[lang]}</div>
       <div className="app__work">
-        <WallpaperText text={Portfolio.Sections.experiences.en} />
+        <WallpaperText text={Portfolio.Sections.experiences[lang]} />
       </div>
       <div className="app__background">
         <Slider {...settings}>
           {Portfolio.Experiences.map((exp, i) => (
             <SlickCard
               key={i}
-              header={exp.en.title}
-              body={exp.en.description}
+              header={exp[lang].title}
+              body={exp[lang].description}
             />
           ))}
         </Slider>
       </div>
       <div className="app__projects">
-        <WallpaperText text={Portfolio.Sections.projects.en} />
+        <WallpaperText text={Portfolio.Sections.projects[lang]} />
       </div>
       <div className="app__background">
         <Slider {...settings}>
           {Portfolio.Projects.map((proj, i) => (
             <SlickCard
               key={i}
-              header={proj.en.title}
-              body={proj.en.description}
+              header={proj[lang].title}
+              body={proj[lang].description}
             />
           ))}
         </Slider>
       </div>
       <div className="app__awards">
-        <WallpaperText text={Portfolio.Sections.awards.en} />
+        <WallpaperText text={Portfolio.Sections.awards[lang]} />
       </div>
       <div className="app__background">
         <Slider {...settings}>
           {Portfolio.Awards.map((proj, i) => (
             <SlickCard
               key={i}
-              header={proj.en.title}
-              body={proj.en.description}
+              header={proj[lang].title}
+              body={proj[lang].description}
             />
           ))}
         </Slider>
