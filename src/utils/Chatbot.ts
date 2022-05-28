@@ -9,7 +9,7 @@ const computerMembershipTable = (texts: [string, number][]) => {
 
   // get unique terms
   for (let i = 0; i < texts.length; i++) {
-    const text: string = texts[i][0];
+    const text: string = texts[i][0].toLowerCase();
     const tokens = text.split(' ');
     for (const token of tokens) {
       if (!(token in uniqueTerms)) {
@@ -29,7 +29,7 @@ const computerMembershipTable = (texts: [string, number][]) => {
 
   // compute degree of relationship
   for (let i = 0; i < texts.length; i++) {
-    const text: string = texts[i][0];
+    const text: string = texts[i][0].toLowerCase();
     const label: number = texts[i][1];
 
     const tokens = text.split(' ');
@@ -87,7 +87,6 @@ const computeFuzzyRelationship = (fuzzyTable: any, text: string) => {
       const sum = (uR + uD - 2 * uR * uD) / (1 - uR * uD + 1e-3);
       conjunction += product;
       disjunction += sum;
-      console.log(product, sum, conjunction, disjunction);
     }
     relationship.push(conjunction / disjunction);
   }
@@ -132,7 +131,7 @@ const sleep = (ms: number) => {
 const GetResponse = async (message: string) => {
   const { labels, relationship } = computeFuzzyRelationship(
     fuzzyTable,
-    message
+    message.toLowerCase()
   );
   const responseIndex = labels[relationship.indexOf(Math.max(...relationship))];
   const response = responsesList[responseIndex];
