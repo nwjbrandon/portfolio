@@ -127,17 +127,17 @@ const GetResponse = async (message: string) => {
   const responseIndex = labels[relationship.indexOf(Math.max(...relationship))];
   const response = responsesList[responseIndex];
 
-  await axios
-    .post(requestUrl, {
-      chat_id: chatId,
-      text: `utterance: ${message} | response: ${response}`,
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // await axios
+  //   .post(requestUrl, {
+  //     chat_id: chatId,
+  //     text: `utterance: ${message} | response: ${response}`,
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 
   const botUtterance = {
     message: response,
