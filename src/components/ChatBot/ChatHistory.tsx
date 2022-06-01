@@ -35,7 +35,7 @@ const ChatHistory: React.FC = () => {
     element.scrollIntoView({ behavior: 'smooth' });
   });
 
-  const chatBotHeight = width < 350 ? height : 450;
+  const chatBotHeight = width < 400 ? height - 55 : 450;
   const maxLines = lines > 5 ? 5 : lines;
   const heightInPx = chatBotHeight - maxLines * 15 - 85;
   return (
