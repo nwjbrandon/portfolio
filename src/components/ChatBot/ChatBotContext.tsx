@@ -49,7 +49,7 @@ const ChatBotProvider: React.FC = (props) => {
   const [hotTexts, setHotTexts] = React.useState<[string, number][]>([]);
   const [messages, setMessages] = React.useState<MessageProps[]>([]);
   const [isGreeting, setIsGreeting] = React.useState<boolean>(true);
-  const [isChat, setIsChat] = React.useState<boolean>(true);
+  const [isChat, setIsChat] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const shuffled = hotTextsList.sort(() => Math.round(Math.random()));
