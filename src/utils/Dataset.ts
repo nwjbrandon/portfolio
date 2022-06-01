@@ -9,6 +9,8 @@
 
 // export const testingText: string = "t1 t1 t2 t2 t3 t6 t7"
 
+export const MAX_HOT_TEXTS = 4;
+
 export const trainingTexts: [string, number][] = [
   ['where did he graduate', 0],
   ['where did he study', 0],
@@ -81,6 +83,26 @@ export const trainingTexts: [string, number][] = [
   ['any advice to your juniors', 16],
   ['any suggestion on how to become smart good like you', 16],
   ['i want to study at nus any advice on how to do well', 16],
+];
+
+export const hotTextsList: [string, number][] = [
+  ['What did he study?', 0],
+  ['What is his academic interest?', 1],
+  ['What is his hobby?', 2],
+  ['What is his strength?', 3],
+  ['What is his weakness?', 4],
+  ['What is his future goal in life?', 5],
+  ['What is his favourite food?', 6],
+  ['How to contact him?', 7],
+  ['Tell me more about him.', 8],
+  ['What is his favourite song?', 9],
+  ['Is he looking for a job?', 10],
+  ['What is his top 3 traits?', 11],
+  ['What is his proudest achievement?', 12],
+  ['What does he want to improve on?', 13],
+  ['How is NUS?', 14],
+  ['Where is he working now?', 15],
+  ['Any advice to his juniors?', 16],
 ];
 
 export const responsesList: { [label: string]: string } = {
