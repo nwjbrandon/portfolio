@@ -1,6 +1,7 @@
 import React from 'react';
 import { isAndroid, isIOS, isWinPhone } from 'react-device-detect';
 import GetResponse from 'utils/Chatbot';
+import { hotTextsList, MAX_HOT_TEXTS } from 'utils/Dataset';
 import { MessageProps } from './ChatHistory';
 
 // https://medium.com/@jeffbutsch/typescript-interface-functions-c691a108e3f1
@@ -10,6 +11,7 @@ interface ChatBotContextProps {
   isGreeting: boolean;
   isChat: boolean;
   lines: number;
+  hotTexts: [string, number][];
   setIsGreeting(_: boolean): void;
   setIsChat(_: boolean): void;
   onKeyDown(_: React.KeyboardEvent): void;
@@ -17,6 +19,8 @@ interface ChatBotContextProps {
   setText(_: string): void;
   closeChat(): void;
   openChat(): void;
+  setHotTexts(_: [string, number][]): void;
+  addMessage(msg: string, i: number): void;
 }
 
 const defaultContextProps: ChatBotContextProps = {
@@ -25,6 +29,7 @@ const defaultContextProps: ChatBotContextProps = {
   isGreeting: true,
   isChat: false,
   lines: 0,
+  hotTexts: [],
   setIsGreeting: (_: boolean): void => {},
   setIsChat: (_: boolean): void => {},
   onKeyDown: (_: React.KeyboardEvent): void => {},
@@ -32,6 +37,8 @@ const defaultContextProps: ChatBotContextProps = {
   setText: (_: string): void => {},
   closeChat: (): void => {},
   openChat: (): void => {},
+  setHotTexts: (_: [string, number][]): void => {},
+  addMessage: (_: string, __: number): void => {},
 };
 
 const ChatBotContext =
@@ -39,16 +46,23 @@ const ChatBotContext =
 
 const ChatBotProvider: React.FC = (props) => {
   const [text, setText] = React.useState<string>('');
-  const [messages, setMessages] = React.useState<MessageProps[]>([
-    {
-      message:
-        'Hi, I am Chloe! I can answer your questions about Brandon on his behalf.',
-      user: 'bot',
-      date: new Date(),
-    },
-  ]);
+  const [hotTexts, setHotTexts] = React.useState<[string, number][]>([]);
+  const [messages, setMessages] = React.useState<MessageProps[]>([]);
   const [isGreeting, setIsGreeting] = React.useState<boolean>(true);
   const [isChat, setIsChat] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    const shuffled = hotTextsList.sort(() => Math.round(Math.random()));
+    setHotTexts(shuffled.slice(0, MAX_HOT_TEXTS));
+    setMessages([
+      {
+        message:
+          'Hi, I am Chloe! I can answer your questions about Brandon on his behalf.',
+        user: 'bot',
+        date: new Date(),
+      },
+    ]);
+  }, []);
 
   const openChat = () => {
     setIsGreeting(false);
@@ -63,7 +77,7 @@ const ChatBotProvider: React.FC = (props) => {
     const message = trimMessage(text);
     if (!(isAndroid || isIOS || isWinPhone)) {
       if (e.charCode === 13 && !e.shiftKey && message !== '') {
-        addMessage(message);
+        addMessage(message, -1);
         e.preventDefault();
       }
     }
@@ -72,25 +86,31 @@ const ChatBotProvider: React.FC = (props) => {
   const onClick = async (e: React.MouseEvent) => {
     const message = trimMessage(text);
     if (message !== '') {
-      await addMessage(message);
+      await addMessage(message, -1);
       e.preventDefault();
     }
   };
 
   const trimMessage = (text: string) => text.replace(/^\s+|\s+$/g, '');
 
-  const addMessage = async (message: string) => {
+  const addMessage = async (message: string, hotTextResponseId: number) => {
     const userUtterance = { message, user: 'user', date: new Date() };
     setMessages([...messages, userUtterance]);
     setText('');
-    const botUtterance = await GetResponse(message);
+    const { botUtterance, nextHotTexts } = await GetResponse(
+      message,
+      hotTextResponseId
+    );
     setMessages([...messages, userUtterance, botUtterance]);
+    setHotTexts(nextHotTexts);
   };
 
   return (
     <ChatBotContext.Provider
       value={{
         text,
+        hotTexts,
+        setHotTexts,
         messages,
         isGreeting,
         isChat,
@@ -102,6 +122,7 @@ const ChatBotProvider: React.FC = (props) => {
         setText,
         openChat,
         closeChat,
+        addMessage,
       }}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}

@@ -1,5 +1,6 @@
 // Fuzzy Approach For Text Classification https://www.researchgate.net/publication/3845652_A_fuzzy_similarity_approach_in_text_classification_task
 import axios from 'axios';
+import { hotTextsList, MAX_HOT_TEXTS } from 'utils/Dataset';
 import { trainingTexts, responsesList, stopWordsList } from './Dataset';
 
 const stopWordsSet = new Set(stopWordsList);
@@ -19,6 +20,7 @@ const computerMembershipTable = (texts: [string, number][]) => {
 
   // get unique terms
   for (let i = 0; i < texts.length; i++) {
+    // ensure text is lower case
     const text: string = texts[i][0].toLowerCase();
     const tokens = text.split(' ');
     for (const token of tokens) {
@@ -42,6 +44,7 @@ const computerMembershipTable = (texts: [string, number][]) => {
 
   // compute degree of relationship
   for (let i = 0; i < texts.length; i++) {
+    // ensure text is lowercase
     const text: string = texts[i][0].toLowerCase();
     const label: number = texts[i][1];
 
@@ -119,32 +122,71 @@ const computeFuzzyRelationship = (fuzzyTable: any, text: string) => {
 
 const fuzzyTable = computerMembershipTable(trainingTexts);
 
-const GetResponse = async (message: string) => {
+const preprocessText = (message: string) => {
+  const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+  const messageNoPunctuation = message.replace(regex, '');
+  const messageTrim = messageNoPunctuation.replace(/\s+/g, ' ').trim();
+  const messageLowerCase = messageTrim.toLowerCase();
+  return messageLowerCase;
+};
+
+const topK = (inp: number[], count: number) => {
+  let outp = [];
+  for (let i = 0; i < inp.length; i++) {
+    outp.push(i); // add index to output array
+    if (outp.length > count) {
+      outp.sort(function (a, b) {
+        return inp[b] - inp[a];
+      }); // descending sort the output array
+      outp.pop(); // remove the last index (index of smallest element in output array)
+    }
+  }
+  return outp;
+};
+
+const GetResponse = async (message: string, hotTextResponseId: number) => {
+  const messageCleaned = preprocessText(message);
   const { labels, relationship } = computeFuzzyRelationship(
     fuzzyTable,
-    message.toLowerCase()
+    messageCleaned
   );
-  const responseIndex = labels[relationship.indexOf(Math.max(...relationship))];
-  const response = responsesList[responseIndex];
 
-  await axios
-    .post(requestUrl, {
+  const responseIndex = labels[relationship.indexOf(Math.max(...relationship))];
+  let response = '';
+  if (hotTextResponseId >= 0) {
+    response = responsesList[hotTextResponseId.toString()];
+  } else {
+    response = responsesList[responseIndex];
+  }
+
+  let nextHotTexts: [string, number][] = [];
+  if (Math.max(...relationship) < 0.001) {
+    nextHotTexts = hotTextsList
+      .sort(() => Math.round(Math.random()))
+      .slice(0, MAX_HOT_TEXTS);
+  } else {
+    const indices = topK(relationship, MAX_HOT_TEXTS);
+    for (const index of indices) {
+      nextHotTexts.push(hotTextsList[index]);
+    }
+  }
+
+  try {
+    const res = await axios.post(requestUrl, {
       chat_id: chatId,
       text: `utterance: ${message} | response: ${response}`,
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
     });
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
 
   const botUtterance = {
     message: response,
     user: 'bot',
     date: new Date(),
   };
-  return botUtterance;
+  return { botUtterance, nextHotTexts };
 };
 
 export default GetResponse;
