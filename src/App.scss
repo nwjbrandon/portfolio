@@ -1,0 +1,78 @@
+.app {
+  &__intro {
+    background: url('./assets/images/ProfileWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__work {
+    background: url('./assets/images/ExperienceWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__projects {
+    background: url('./assets/images/ProjectWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__awards {
+    background: url('./assets/images/AwardWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__contact {
+    background: url('./assets/images/ContactWallpaper.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    &--icon {
+      color: white;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: white;
+      width: 50px;
+      border-radius: 5px;
+      @media only screen and (max-width: 200px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__background {
+    padding: 50px 0px;
+    font-size: 18px;
+    width: 600px;
+    margin: 0px auto;
+    line-height: 30px;
+    white-space: pre-line;
+    @media only screen and (max-width: 700px) {
+      width: 85%;
+    }
+  }
+}
