@@ -6,10 +6,10 @@ const ShortIntroduction: { [id: string]: string }[] = [
     en: 'I am a SWE at AI Singapore.',
   },
   {
-    en: 'I am currently doing a Master at NUS.',
+    en: 'I am a Master student at NUS.',
   },
   {
-    en: 'My hobby is travelling in Japan.',
+    en: 'I like to travel in Japan.',
   },
 ];
 
@@ -39,7 +39,7 @@ const Experiences: { [id: string]: { [id: string]: string } }[] = [
   },
   {
     en: {
-      title: 'Algorithm Engineer Intern (NLP) at Shopee\nDec 2021 - May 2022',
+      title: 'Algorithm Engineer Intern at Shopee\nDec 2021 - May 2022',
       description:
         'Extracted embeddings to cluster text with similar semantics in batches\nPerformed model distillation to learn model weights with fewer parameters',
     },
@@ -53,7 +53,7 @@ const Experiences: { [id: string]: { [id: string]: string } }[] = [
   },
   {
     en: {
-      title: 'System Engineer (IoT) Intern at GovTech\nDec 2020 - March 2021',
+      title: 'System Engineer Intern at GovTech\nDec 2020 - March 2021',
       description:
         'Trained crowd-counting model to estimate the number of people in an image\nDeployed model on Jetson device to estimate crowd count from security cameras',
     },
